@@ -1,0 +1,372 @@
+@CHARSET "UTF-8";
+.alopexgrid .wrapper {
+	border-top: 1px solid #d1d2d7;
+}
+.alopexgrid .bodycell {
+	color: #3c404a;
+	/*line-height: 34px;*/
+}
+/* 우하단 border 생성을 기본으로 한다. 전체 border를 생성하고자 할 경우 
+위아래 또는 좌우셀이 함께 보이면서 보더가 2px로 보이거나 할 수 있으므로
+상하좌우 모두 보더를 사용하고자 할 경우 색상배합에 주의.
+여기에 명시된 height 값은 그리드의 행갯수 기반 높이정의 등에서 사용되는 높이가 됨. */
+.alopexgrid .cell {
+	position:absolute;
+	/*border-left : 0;
+	border-right : 0;*/
+	border-bottom : 1px solid #e1e2e6;
+	overflow:hidden;
+	white-space:nowrap;
+	/*height:34px;*/
+	padding:0px 4px; 
+	height:30px;
+	vertical-align:middle;
+}
+
+/**
+ * 헤더 셀을 위한 디자인
+ */
+/* 헤더셀 기본 디자인 */
+.alopexgrid .headercell,
+.alopexgrid .headercell.cell-header-lastrow.cell-header-firstrow {
+	text-align: center;
+	font-weight:bold;
+	background: #edeef3;
+	color: #2e3441;
+	height: 38px;
+	line-height: 34px;
+	border-right: 1px solid #d1d2d7;
+	border-bottom: 1px solid #d1d2d7;
+}
+.alopexgrid .headercell.cell-header-lastrow.cell-header-firstrow:last-child {
+	background: #edeef3;
+}
+.alopexgrid .headercell.cell-header-lastrow.cell-header-firstrow.cell-lastcolumn {
+	border-right: 0;
+}
+.alopexgrid .column-title{
+	display: inline-block;
+	line-height: 100%;
+	vertical-align: middle;
+	font-size: 13px;
+}
+/* option.hiddenColumnArea를 사용할 때 사용되는 최상단 클래스. 그리드 타이틀 아래 위치한다. */
+.alopexgrid .columnhiddenarea {
+	height: 46px;
+	background: #f8f8fa;
+	border: 1px solid #e1e2e6;
+	margin-bottom: 12px;
+}
+/* option.columnHideByDragdrop에 정의된 텍스트 타이틀의 스타일링. */
+.alopexgrid .columnhiddenarea .columnhiddenarea-label {
+	float:left;
+	margin: 13px 0 0 18px;
+	font-family: "맑은 고딕", "Malgun Gothic";
+	font-size: 13px;
+	line-height: 13px;
+	color: #757984;
+}
+.alopexgrid .columnhiddenarea .headercell {
+	position: absolute;
+	background: #bfc1cc;
+	/* v3.7.5- deprecated 그라데이션 제거 */
+	/*background: -ms-linear-gradient(#61676b, #61676b);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#61676b', endColorstr='#61676b',GradientType=0);*/
+	border: 0;
+	box-shadow: 0 0 0;
+	min-width:100px;
+	height:26px;
+	line-height: 26px;
+	margin:8px 6px;
+}
+.alopexgrid .columnhiddenarea .headercell .header-dragdrop-handle {
+	left: 3px;
+	top: 3px;
+	background:url("../images/spms-draghandler.png") no-repeat;
+}
+.alopexgrid .columnhiddenarea .headercell {
+	font-size: 13px;
+	color: #ffffff;
+}
+/* 헤더 드래그 앤 드롭 중인 헤더에 대한 별도 디자인이 필요한 경우 사용 */
+.alopexgrid.alopexgrid-proxy.alopexgrid-dragdrop-header .cell {
+	border-bottom:1px solid #f2dccd;
+	border-left:1px solid #2e3441;
+	border-right:1px solid #2e3441;
+	background-color:#ffefe3;
+	padding: 0 4px;
+}
+.alopexgrid.alopexgrid-proxy.alopexgrid-dragdrop-header .cell.headercell {
+	background: #f2dccd;
+	border:1px solid #2e3441;
+	border-bottom: 1px solid #f2dccd;
+	color: #2e3441;
+}
+
+.alopexgrid.alopexgrid-proxy.alopexgrid-dragdrop-header .cell:last-child {border-bottom:1px solid #2e3441}
+.alopexgrid.alopexgrid-proxy.alopexgrid-dragdrop-header.disabled .cell {
+	background: #e0e0e0;
+	border-color:#acacac;
+}
+/* hiddenColumnArea에서 드래그드롭 중인 헤더에 대한 별도 디자인이 필요한 경우 사용 */
+.alopexgrid.alopexgrid-proxy.alopexgrid-dragdrop-header .columnhiddenarea .headercell {
+	background: #f2dccd;
+	border:1px solid #2e3441;
+	color: #000;
+	box-shadow: none;
+	margin:0;
+}
+.alopexgrid.alopexgrid-proxy.alopexgrid-dragdrop-header .columnhiddenarea .headercell .colume-title {
+	color: #2e3441;
+}
+/* 헤더 드래그 앤 드롭 핸들 */
+.alopexgrid .headerdragdrop .header-dragdrop-handle {
+	left: 1px;
+}
+/* 정렬 방향을 표시하기 위한 요소는 셀 내부에 sorting-handle클래스를 가지는 div 태그로 표현된다. */
+.alopexgrid .sorting .sorting-handle {
+	width: 7px;
+	height: 5px;
+}
+/* 헤더에 표시되는 필터링 셀 디자인 */
+.alopexgrid .headercell.filtercell {
+	border-right: 1px solid #ffffff;
+	border-bottom: 1px solid #e1e2e6;
+	background: #bfc1cc;
+}
+/* selectorColumn 또는 rowSelect()에 의해 선택된 데이터에 대한 스타일링 */
+.alopexgrid .cell.bodycell.selected {
+	background-color: #f6f6f7;
+}
+/* 선택된 행 바로 위에 있는 행 스타일링 */
+.alopexgrid .cell.bodycell.selected.nextrow-selected {
+	background-color: #f6f6f7;
+}
+/* 선택된 행 바로 아래에 있는 행 스타일링 */
+.alopexgrid .cell.bodycell.selected.prevrow-selected {
+	background-color: #f6f6f7;
+}
+/* 헤더에 표시되는 필터링 셀의 아이콘과 드랍다운 메뉴에 대한 디자인 */
+.alopexgrid .filter-cell-unit {line-height: 12px;}
+
+/*image checkbox & image radio */
+.alopexgrid .alopexgrid-input-wrapper.alopexgrid-input-checkbox-wrapper:after {
+	width: 14px;
+	height: 14px;
+}
+.alopexgrid .headercell .alopexgrid-input-wrapper.alopexgrid-input-checkbox-wrapper:after {
+	width: 14px;
+	height: 14px;
+}
+/* Header Group colspan별 디자인*/
+.alopexgrid .header-group[data-alopexgrid-columndepth="0"] {
+	background: #edeef3;
+	color: #2e3441;
+}
+.alopexgrid .header-group[data-alopexgrid-columndepth="1"],
+.alopexgrid .header-group.cell-header-lastrow[data-alopexgrid-columndepth="1"] {
+	background: #edeef3;
+	color: #2e3441;
+}
+.alopexgrid .header-group[data-alopexgrid-columndepth="2"],
+.alopexgrid .header-group.cell-header-lastrow[data-alopexgrid-columndepth="2"] {
+	background: #edeef3;
+	color: #2e3441;
+}
+.alopexgrid .headercell.header-group[data-alopexgrid-columndepth="3"],
+.alopexgrid .header-group.cell-header-lastrow[data-alopexgrid-columndepth="3"] {
+	background: #edeef3;
+	color: #2e3441;
+}
+/* 첫페이지, 전페이지, 페이지번호, 다음페이지, 끝페이지를 표현하는 요소들 */
+.alopexgrid .pager .page-button {
+	display:inline-block;
+	width: 26px;
+	height: 26px;
+}
+/* 페이지 버튼들은 a태그를 가진다. */
+.alopexgrid .pager .page-button a {
+	width: 26px;
+	height: 26px;
+	padding-top: 2px;
+	color: #3c404a;
+	font-size: 13px;
+}
+.alopexgrid .pager .page-list a {
+	border: 1px solid #ffffff;
+}
+/* 현재 페이지를 의미하는 페이지 버튼은 current 클래스를 가진다. */
+.alopexgrid .pager .page-button.current a,
+.alopexgrid .pager .page-button.hovering a{
+	color: #d04238;
+	border: 1px solid #d04238;
+}
+/* 클래스 명칭 그대로 버튼들이 역할을 함. */
+.alopexgrid .pager .page-button.first-page a {
+	background:url("/static/images/common/grid.png") no-repeat -115px -294px;
+}
+.alopexgrid .pager .page-button.prev-page a{
+	background:url("/static/images/common/grid.png") no-repeat -74px -294px;
+	border-left:0;
+}
+.alopexgrid .pager .page-button.next-page a{
+	background:url("/static/images/common/grid.png") no-repeat -28px -294px;
+	border-right:0;
+}
+.alopexgrid .pager .page-button.last-page a{
+	background:url("/static/images/common/grid.png") no-repeat 12px -294px;
+}
+
+/* AMS 추가 : pager hovering */
+.alopexgrid .pager .page-button.first-page.hovering a {
+	border: 0;
+	background:url("/static/images/common/grid.png") no-repeat -273px -294px;
+}
+.alopexgrid .pager .page-button.prev-page.hovering a{
+	border: 0;
+	background:url("/static/images/common/grid.png") no-repeat -232px -294px;
+}
+.alopexgrid .pager .page-button.next-page.hovering a{
+	border: 0;
+	background:url("/static/images/common/grid.png") no-repeat -186px -294px;
+}
+.alopexgrid .pager .page-button.last-page.hovering a{
+	border: 0;
+	background:url("/static/images/common/grid.png") no-repeat -146px -294px;
+}
+
+/* 스크롤바영역 내의 실제 스크롤바 */
+.alopexgrid .scrollbar {
+	background: #edeef3;
+}
+
+.alopexgrid .scrollbar .scrollhandle {
+	background-color: #d5d5d5;
+}
+/**
+ * 푸터 셀을 위한 디자인 
+ */
+.alopexgrid .footercell {
+	background-color: #edeef3;
+}
+/* option.footer.position="top" 일 때 셀의 보더 위치가 조절되어야 함. */
+.alopexgrid .footercell.footercell-top {
+	background: #edeef3;
+	line-height: 30px;
+	color: #3c404a;
+	border-bottom:1px solid #2e3441;
+	border-top:1px solid #2e3441;
+}
+/* option.footer.position="bottom" 일 때 */
+.alopexgrid .footercell.footercell-bottom {
+	background: #edeef3;
+	line-height: 30px;
+	color: #3c404a;
+	border-bottom:1px solid #2e3441;
+	border-top:1px solid #2e3441;
+}
+.alopexgrid .alopexgrid-input-wrapper.alopexgrid-input-radio-wrapper:after,
+.alopexgrid.alopexgrid-filterdropdown-wrapper .alopexgrid-input-wrapper.alopexgrid-input-radio-wrapper:after {
+	background: transparent url("/static/images/common/grid.png") no-repeat -36px -345px;
+}
+.alopexgrid .alopexgrid-input-wrapper.alopexgrid-input-radio-wrapper.checked:after {background-position:0px -345px;}
+.alopexgrid.alopexgrid-filterdropdown-wrapper .alopexgrid-input-wrapper.alopexgrid-input-radio-wrapper.checked:after {background-position:0px -345px;}
+
+/**
+ * 헤더의 필터 아이콘을 클릭하였을 때 표시되는 필터링 드롭 다운에 대한 디자인.
+ */
+.alopexgrid.alopexgrid-filterdropdown-wrapper {
+	/* float: left; */
+	margin: 2px 0 0;
+	background: #fff;
+	min-width: 200px;
+	font-size: 12px;
+	border: 1px solid #a4a7a9;
+	border-top-left-radius:4px;
+	border-top-right-radius:4px;
+	box-shadow: 0 0px 0px;
+	-webkit-box-shadow: 0 0px 0px;
+	-moz-box-shadow: 0 0px 0px;
+}
+/* 필터링 드랍다운 매뉴의 헤더 스타일 */
+.alopexgrid.alopexgrid-filterdropdown-wrapper .alopexgrid-filterdropdown .header {
+	text-indent:8px;
+	font-weight: bold;
+	color: #3c404a;
+	padding: 6px 3px;
+	background: #dddfe8;
+}
+/* 필터링 드랍다운 매뉴 아이템들의 스타일 */
+.alopexgrid.alopexgrid-filterdropdown-wrapper .alopexgrid-filterdropdown .menu {
+	margin: 5px 5px 7px 10px;
+}
+/* 텍스트 필터링 메뉴의 텍스트 박스에 대한 스타일 */
+.alopexgrid.alopexgrid-filterdropdown-wrapper .alopexgrid-filterdropdown .menu .filtertext,
+.alopexgrid.alopexgrid-filterdropdown-wrapper .alopexgrid-filterdropdown .menu .filtertextbottom {
+	vertical-align: top;
+	height: 20px;
+	border-radius: 2px;
+	border: 1px solid #a4a7a9;
+}
+.alopexgrid.alopexgrid-filterdropdown-wrapper .alopexgrid-filterdropdown .menu .filterselect:disabled,
+.alopexgrid.alopexgrid-filterdropdown-wrapper .alopexgrid-filterdropdown .menu .filterselectbottom:disabled {
+	background-color:#E6E6E6;
+	border-radius: 2px;
+	border: 1px solid #a4a7a9;
+}
+.alopexgrid .alopexgrid-filterdropdown .relative-wrap .column-title {
+	float: left;
+	position: relative;
+	top: 32%;
+	font-size: 12px;
+}
+/* 데이터 필터 영역의 체크박스 옆의 label에 대한 스타일 */
+.alopexgrid.alopexgrid-filterdropdown-wrapper .checkboxarea .alopexgrid-filter-checkboxlabel {
+	vertical-align: inherit;
+}
+/* 데이터 필터 영역의 적용, 닫기 버튼 영역에 대한 스타일 */
+.alopexgrid.alopexgrid-filterdropdown-wrapper .checkboxarea .buttonarea {
+	text-align: right;
+	background: #dddfe8;
+}
+/* 데이터 필터 영역의 닫기 버튼에 대한 스타일 */
+.alopexgrid.alopexgrid-filterdropdown-wrapper .buttonarea .filterclose {
+	background: #878a93;
+	height: 19px;
+	color: #ffffff;
+	margin: 6px;
+	padding: 4px 10px;
+	line-height: 11px;
+	border: 0;
+	-webkit-border-radius: 0;
+	-moz-border-radius: 0;
+	-ms-border-radius: 0;
+	border-radius: 0;
+}
+/* 데이터 필터 영역의 적용 버튼에 대한 스타일 */
+.alopexgrid.alopexgrid-filterdropdown-wrapper .buttonarea .filtersubmit {
+	background: #4d515b;
+	height: 19px;
+	margin: 6px 0;
+	padding: 4px 10px;
+	line-height: 11px;
+	border: 0;
+	-webkit-border-radius: 0;
+	-moz-border-radius: 0;
+	-ms-border-radius: 0;
+	border-radius: 0;
+}
+
+.alopexgrid .cell-type-text input[type="text"] {
+	max-width: 100%; width: 95%;
+}
+
+.alopexgrid .bodycell.alopexgrid-cell.cell-flag-color-add {
+	color: #83aae1; font-weight: bold;
+}
+.alopexgrid .bodycell.alopexgrid-cell.cell-flag-color-del {
+	color: #eb95ba; font-weight: bold;
+}
+.alopexgrid .bodycell.alopexgrid-cell.cell-flag-color-mod {
+	color: #83d2e1; font-weight: bold;
+}

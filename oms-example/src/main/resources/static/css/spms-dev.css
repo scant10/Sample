@@ -1,0 +1,85 @@
+﻿/* alopex 및 SPMS css 개발자 수정용 */
+
+/* SPMS */
+.alopexgrid .column-resizing-handle {
+	cursor: col-resize;
+	position: absolute;
+	right: 0px;
+	bottom: 0px;
+	width: 8px;
+	height: 16px;
+	background: url("") no-repeat 2px 10px;
+}
+
+.alopexgrid .sorting .sorting-handle {
+	position:absolute;
+	right:10px;
+	/* bottom:35%; */
+	width:5px;
+	height:10px;
+	background:url("") no-repeat 0 1px;
+}
+
+.alopexgrid .cell-ui-editable {
+	background-color: #D9E5FF !important; 
+}
+
+.popup-wrap.notice .popup-contents { 
+	padding:55px 15px 55px;
+}
+
+.wp60 {
+	width:66.66%;
+	float:left;
+}
+
+.wp30 + .wp60  {
+	padding-left:5px;
+}
+
+.wp60 input {
+	width:100%;
+}
+
+.wp100 {
+	width:100%;
+	float:left;
+}
+
+.wp100 input  {
+	width:100%;
+}
+
+.noticeBox dd ul li a { 
+	display:block;
+	line-height:28px;
+	font-size:15px;
+	color:#333;
+	overflow:hidden;
+	text-overflow:ellipsis;
+	white-space:nowrap;
+}
+
+.alopexgrid .cell-selected-focus.cell-ui-noneditable {
+	background-color:#f6f6f7;
+}
+
+.titleArea {
+	height:27px;
+	overflow:hidden;
+	margin:20px 0 5px;
+}
+
+.spms-history a {
+	cursor: default;
+}
+
+.btn-right {
+	float: right;
+	margin-top: 0px;
+}
+
+.btn-right-marginTop20 {
+	float: right;
+	margin-top: 20px;
+}

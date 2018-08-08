@@ -1,0 +1,35 @@
+server:
+  port: 9999
+    
+spring:
+  profiles: default
+  datasource:
+    driver-class-name: org.mariadb.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/example
+    username: root
+    password: 1111
+    sql-script-encoding: UTF-8
+    platform: mysql
+    type: com.zaxxer.hikari.HikariDataSource
+    hikari:
+      pool-name: oms-sla-hikari-pool
+      maximum-pool-size: 10
+      connection-test-query: SELECT 1
+  jpa:
+    database: mysql
+    generate-ddl: true
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+service-urls:
+  oms-example: http://localhost:9999/v1/oms/example
+  oms-trouble: http://localhost:10100/v1/oms/trouble
+  oms-change: http://localhost:10200/v1/oms/change
+  oms-request: http://localhost:10300/v1/oms/request
+  oms-servicedesk: http://localhost:10400/v1/oms/servicedesk
+  oms-sla: http://localhost:10500/v1/oms/sla
+  oms-slm: http://localhost:10510/v1/oms/slm
+  oms-criteria: http://localhost:10600/v1/oms/criteria
+  oms-file: http://localhost:10700/v1/oms/file
+  oms-common: http://localhost:10800/v1/oms/common
+  oms-glossary: http://localhost:10900/v1/oms/glossary

@@ -1,0 +1,31 @@
+spring:
+  profiles: dev
+  datasource:
+    driver-class-name: oracle.jdbc.driver.OracleDriver
+    url: jdbc:oracle:thin:@10.250.169.129:1521:MISDEV
+    username: APP_ADM
+    password: "welcome1"
+    sql-script-encoding: UTF-8
+    platform: oracle
+    type: com.zaxxer.hikari.HikariDataSource
+    hikari:
+      pool-name: oms-sla-hikari-pool
+      maximum-pool-size: 10
+      connection-test-query: SELECT 1 FROM DUAL
+  jpa:
+    database: oracle
+    generate-ddl: false
+    hibernate:
+      ddl-auto: none
+    show-sql: true
+service-urls:
+  oms-trouble: /v1/oms/trouble
+  oms-change: /v1/oms/change
+  oms-request: /v1/oms/request
+  oms-servicedesk: /v1/oms/servicedesk
+  oms-sla: /v1/oms/sla
+  oms-slm: /v1/oms/slm
+  oms-criteria: /v1/oms/criteria
+  oms-file: /v1/oms/file
+  oms-common: /v1/oms/common
+  oms-glossary: /v1/oms/glossary

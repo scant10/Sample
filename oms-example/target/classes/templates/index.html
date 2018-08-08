@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<th:block th:include="fragments/header"></th:block>
+<title>케이스#1::디자인샘플</title>
+</head>
+<body>
+	<div class="spms-wrap">
+		<!-- Start Top Menu -->
+		<th:block th:include="fragments/top"></th:block>
+		<!-- End Top Menu -->
+
+		<!-- Start Main Contents -->
+		<div class="spms-subcontent">
+			<!-- Start Left Menu -->
+			<th:block th:include="fragments/left"></th:block>
+			<!-- End Left Menu -->
+			
+			<!-- contents -->
+			<div class="sub-contents__wrap">
+				<th:block th:text="#{default.message}"></th:block>
+			</div>
+			<!-- //contents -->
+		</div>
+		<!-- //main-contents -->
+		<!-- Footer Include  -->
+		<th:block th:include="fragments/footer"></th:block>
+	</div>
+</body>
+</html>

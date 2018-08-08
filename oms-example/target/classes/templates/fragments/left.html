@@ -1,0 +1,184 @@
+<!-- left menu -->
+<!-- lnb 
+	서브 메뉴가 있는 경우 : expandable
+	서브 메뉴를 클릭하고 오픈한 경우 : expanded
+-->
+<script type="text/javascript">
+/*<![CDATA[*/
+$a.page(function() {
+	this.init = function(id, param) {
+		//이전 좌측메뉴 상태 설정
+		setPrevLeftMenuState();
+		
+		var menuCat = 'BIZ';
+		if(menuCat == 'SYS') {
+			$('.spms-lnb__title').addClass('admin');
+		}
+	};
+});
+
+function toggleLeftMenuBar() {
+	var lnbWrap = $('.spms-lnb__title > a');
+	
+	if(lnbWrap.hasClass('lnb-close')) {
+		closeLeftMenuBar(lnbWrap);
+	}
+	else if(lnbWrap.hasClass('lnb-open')) {
+		openLeftMenuBar(lnbWrap);
+	};
+	
+	//$(window).resize();
+	$('.alopexgrid').alopexGrid('viewUpdate');
+	return false;
+}
+
+function closeLeftMenuBar(lnbWrap) {
+	lnbWrap.prev().hide().parent().siblings().hide();
+	lnbWrap.parent().parent().addClass('close');
+	lnbWrap.removeClass('lnb-close').addClass('lnb-open');
+	lnbWrap.text('메뉴열기');
+	$COM_UTIL.setSsn("leftMnuState","CLOSE");
+}
+
+function openLeftMenuBar(lnbWrap) {
+	lnbWrap.parent().parent().removeClass('close');
+	lnbWrap.prev().show().parent().siblings().show();
+	lnbWrap.removeClass('lnb-open').addClass('lnb-close');
+	lnbWrap.text('메뉴닫기');
+	$COM_UTIL.setSsn("leftMnuState","OPEN");
+}
+
+/* 이전 좌측메뉴 상태 적용 */
+function setPrevLeftMenuState(){
+	var lnbWrap = $('.spms-lnb__title > a');
+	var lMnuStat = $COM_UTIL.getSsn("leftMnuState");
+	
+	$COM_UTIL.debugLog("getSsn() : key [leftMnuState], val [" + lMnuStat + "]");
+	
+	if(lMnuStat == "CLOSE") {
+		closeLeftMenuBar(lnbWrap);
+	}
+	else {
+		openLeftMenuBar(lnbWrap);
+	}
+	$('.alopexgrid').alopexGrid('viewUpdate');
+}
+
+//Alopex Accordion Menu 생성
+function setLeftAccMenu(levId1, levId2) {
+	if(levId1 == 'undefined' || levId1 == null) {
+		return;
+	}
+	
+	var menuObj = $COM_UTIL.getSsn($COM_UTIL.KEY_MENU_LIST);
+	if(!menuObj) {
+		return;
+	}
+	menuObj = JSON.parse(menuObj);
+	createLeftAccMenu(menuObj, levId1, levId2);
+}
+
+/**
+ * 좌측메뉴 생성
+ */
+function createLeftAccMenu(menus, levId1, levId2) {
+	$("#leftMenuAcc").remove();
+	
+	if(menus == 'undefined' || menus.length == 0) {
+		return;
+	}
+	
+	$("#leftMenuArea").append('<ul class="lnb-main" id="leftMenuAcc"></ul>'); 
+	var parentChk1 = 0, parentChk2 = 0, currentUri = $(location).attr('href');
+	
+	for(var i = 0; i < menus.length; i++) {
+		var lev 		 = menus[i].level;
+		var menuId 		 = menus[i].menuId;
+		var menuName 	 = menus[i].menuName;
+		var parentMenuId = menus[i].parentMenuId;
+		var pageUri 	 = menus[i].pageUri;
+		
+		if('1' == lev && parentChk1 == 0 && (levId1 == 'undefined' || levId1 == null || levId1 == '')) {
+			levId1 = menuId;
+			parentChk1++;
+		}
+		
+		if('1' == lev && levId1 == menuId) {
+			$("#depth1Nm").text(menuName);
+		}
+		else if('2' == lev && levId1 == parentMenuId) {
+			if(parentChk2 == 0 && (levId2 == 'undefined' || levId2 == null || levId2 == '')) {
+				levId2 = menuId;
+				parentChk2++;
+			}
+			if(pageUri != "") {
+				$("#leftMenuAcc").append('<li id=l_li_'+menuId+' data-parent="'+parentMenuId+'"><a href="#" onclick="javascript:return leftMenuNavigator(\'' + menuId + '\')">'+menuName+'</a></li>');
+				if(currentUri.indexOf(pageUri) > -1) {
+					$("#l_li_"+menuId).children("a").addClass("selected");
+				}else if($a.session('menuId') == menuId){
+					$("#l_li_"+menuId).children("a").addClass("selected");
+				}
+			}
+			else {
+				$("#leftMenuAcc").append('<li id=l_li_'+menuId+' data-parent="'+parentMenuId+'"><a href="#" onclick="return false;">'+menuName+'</a></li>');
+			}
+		}
+		else if('3' == lev) {
+			var lastLevUl = $("#l_ul_"+parentMenuId).attr('id');
+			if(lastLevUl == 'undefined' || lastLevUl == null || lastLevUl == '') {
+				$("#l_li_"+parentMenuId).append("<ul class='lnb-sub' id=l_ul_"+parentMenuId+"><li id=l_li_"+menuId+"><a href='#' onclick='javascript:return leftMenuNavigator(\"" + menuId + "\")'>"+menuName+"</a></li></ul>");
+			}
+			else {
+				$("#l_ul_"+parentMenuId).append("<li id=l_li_"+menuId+"><a href='#' onclick='javascript:return leftMenuNavigator(\"" + menuId + "\")'>"+menuName+"</a></li>");
+			}
+			
+			if(currentUri.indexOf(pageUri) > -1 && pageUri != "") {
+//					$("#l_li_"+parentMenuId).addClass("expanded");
+				$("#l_li_"+parentMenuId).children("a").addClass("selected");
+				$("#l_li_"+menuId).children("a").addClass("selected");
+			}
+		}
+	}
+	
+	//left sub menu toggle
+	var lnbSub = $('.lnb-main > li');
+	$(lnbSub).find('.lnb-sub').parent().addClass('expandable');
+	
+	if($(lnbSub).hasClass('expandable')){
+		var lnbSubExpand = $('.lnb-main > li.expandable > a');
+		$(lnbSubExpand).click(function(e){
+			e.preventDefault();
+			$(this).parent().find('.lnb-sub').slideToggle();
+			$(this).parent().toggleClass('expanded');
+			$(this).toggleClass('selected');
+		});
+	};
+	$('#l_li_'+levId2).find('.lnb-sub').slideToggle();
+	$('#l_li_'+levId2).toggleClass('expanded');
+	
+	$($("#leftMenuArea")).convert();
+}
+
+function leftMenuNavigator(menuId) {
+	$COM_UTIL.goMenuPage(menuId);
+	return false;
+}
+/*]]>*/
+</script>
+<div class="spms-lnbwrap">
+	<div class="spms-lnb__title">
+		<h2 class="sng-lnb__tit" id="depth1Nm" th:text="#{menu.left.depth2}"></h2>
+		<a href="#" class="lnb-close" onclick="javascript:return toggleLeftMenuBar();" th:text="#{menu.left.close}"></a>
+	</div>
+	<div class="spms-lnb" id="leftMenuArea">
+		<ul class="lnb-main">
+			<li><a href="#" class="selected" th:text="#{menu.left.depth2-1}"></a></li>
+			<li><a href="#" th:text="#{menu.left.depth2-2}"></a></li>
+			<li><a href="#" th:text="#{menu.left.depth2-3}"></a></li>
+			<li><a href="#" th:text="#{menu.left.depth2-4}"></a></li>
+			<li><a href="#" th:text="#{menu.left.depth2-5}"></a></li>
+		</ul>
+	</div>
+</div>
+<!-- //lnb -->
+<!-- left menu -->

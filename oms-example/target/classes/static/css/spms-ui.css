@@ -1,0 +1,581 @@
+@CHARSET "UTF-8";
+
+.Accordion, .Accordion *,
+.Button, .Button *,
+.Carousel, .Carousel *,
+.Checkbox, .Checkbox *,
+.Dateinput, .Dateinput *,
+.Datepicker, .Datepicker *,
+.Daterange, .Daterange *,
+.Dialog, .Dialog *,
+.Divselect, .Divselect *,
+.Dropdown, .Dropdown *,
+.Dropdownbutton, .Dropdownbutton *,
+.Group, .Group *,
+.Groupbutton, .Groupbutton *,
+.Icon, .Icon *,
+.List, .List *,
+.Navigationbar, .Navigationbar *,
+.Navmenu, .Navmenu *,
+.Paging, .Paging *,
+.Panel, .Panel *,
+.Progressbar, .Progressbar *,
+.Radio, .Radio *,
+.Searchinput, .Searchinput *,
+.Select, .Select *,
+.Slider, .Slider *,
+.Spinner, .Spinner *,
+.Switch, .Switch *,
+.Table, .Table *,
+.Tabs, .Tabs *,
+.Textarea, .Textarea *,
+.Textinput, .Textinput *,
+.Tooltip, .Tooltip *,
+.Tree, .Tree *,
+.Label, .Label *,
+.Quotation, .Quotation *,
+.Cite, .Cite *,
+.Mark, .Mark *,
+.Code, .Code *,
+.Small, .Small *,
+.Strong, .Strong *,
+.Del, .Del *,
+.Alink, .Alink *,
+.Splitter, .Splitter *,
+.Hierarchical, .Hierarchical *,
+.MultiSelect, .MultiSelect * {
+	font-family: "맑은 고딕", "Malgun Gothic";
+}
+.Button {
+  padding: 4px 10px 6px;
+  line-height: 20px;
+  border: 0;
+  font-family: "맑은 고딕", "Malgun Gothic";
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  -ms-border-radius: 0px;
+  border-radius: 0px;
+  -webkit-transition: none;
+  -moz-transition: none;
+  -o-transition: none;
+  transition: none;
+}
+.Button {
+	color: #ffffff;
+	font-size: 13px;
+	background: #757984;
+}
+
+.Button:focus, .Button:hover, .Button:active, .Button.Checked {
+	padding: 4px 10px 6px;
+	color: #ffffff;
+	border: 0;
+	filter: none;
+	background: #63666f;
+}
+.Button.Default {
+	background: #bfc2c7;
+}
+.Button.Default:focus,
+.Button.Default:hover,
+.Button.Default:active {
+	background: #a8abb0;
+}
+.Button.Large,
+.Dropdownbutton.Large {
+	min-width: 95px;
+	padding: 5px 20px 7px;
+	font-size: 15px;
+	line-height: 20px;
+	background: #585d67;
+}
+.Button.Large:focus,
+.Dropdownbutton.Large:focus,
+.Button.Large:hover,
+.Dropdownbutton.Large:hover,
+.Button.Large:active,
+.Dropdownbutton.Large:active {
+	background: #393e4b;
+}
+
+.Button.Danger,
+.Dropdownbutton.Danger {
+  background: #e60724;
+}
+.Button.Danger:focus,
+.Dropdownbutton.Danger:focus,
+.Button.Danger:hover,
+.Dropdownbutton.Danger:hover,
+.Button.Danger:active,
+.Dropdownbutton.Danger:active {
+  background: #cf031e;
+}
+/* Checkbox */
+.ImageCheckbox:after,
+.ImageRadio:after {
+	width: 14px;
+	height: 14px;
+	margin-top: -6px;
+}
+/* DateInput Calendar*/
+.Dateinput > input,
+.Daterange .Startdate > input,
+.Daterange .Enddate > input {
+	-webkit-transition: none;
+	-moz-transition: none;
+	-o-transition: none;
+	transition: none;
+}
+.Dateinput > .Calendar,
+.Daterange .Calendar {
+	width: 26px;
+	height: 26px;
+	margin-left: -7px;
+	text-indent:-9999px;
+	background: #ffffff url("../images/btn-spms-ico.png") no-repeat 7px -159px;
+	border: 1px solid #afb3b8;
+	border-left: 0;
+}
+.Dateinput > .Calendar:hover,
+.Daterange .Calendar:hover,
+.Dateinput > .Calendar:active,
+.Daterange .Calendar:active {
+	background: #ffffff url("../images/btn-spms-ico.png") no-repeat 7px -201px;
+	border: 1px solid #afb3b8;
+	-webkit-transition: none;
+	-moz-transition: none;
+	-o-transition: none;
+	transition: none;
+	border-left: 0;
+}
+.Divselect {
+	padding: 5px 8px 5px;
+	vertical-align: middle;
+}
+/* Datepicker */
+.Datepicker {
+	width: 225px;
+	padding: 0;
+	font-size: 12px;
+	background: #ffffff;
+	border: 1px solid #a4a7a9;
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	-ms-border-radius: 2px;
+	border-radius: 2px;
+	-webkit-box-shadow: 0;
+	-moz-box-shadow: 0;
+	box-shadow: 0;
+}
+.Datepicker .Header {
+	height: 40px;
+	text-align: center;
+	background: #edeef3;
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	-ms-border-radius: 2px;
+	border-radius: 2px;
+}
+.Datepicker .SubheaderYear {
+	float: none;
+	display: inline-block;
+	width: 90px;
+	padding-top: 10px;
+}
+.Datepicker .SubheaderMonth {
+	float: none;
+	display: inline-block;
+	width: 70px;
+	padding-top: 10px;
+}
+.Datepicker .CurrentYear {
+	padding: 0 4px 0 8px;
+}
+.Datepicker thead th {
+	height: 19px;
+	background: #576176;
+	border: 1px solid #576176;
+	font-size: 11px;
+	font-weight: normal;
+	color: #ffffff;
+}
+.Datepicker thead th:first-child {
+	border-left: 1px solid #576176;
+}
+.Datepicker .Weekdays {
+	width: 30px;
+	font-size: 11px;
+}
+.Datepicker .Weekdays.Holiday {
+	color: #fd6901;
+}
+.Datepicker .Weekdays.Sat {
+	color: #c6cbcf;
+}
+.Datepicker .Day, .Datepicker .Month {
+	color: #3a3a3a;
+}
+.Datepicker .Day:hover, .Datepicker .Month:hover {
+	background: #f4f5f5;
+	color: #3a3a3a;
+	font-weight: normal;
+}
+.Datepicker .Today,
+.Datepicker .Today:hover,
+.Datepicker .Today:focus {
+	background: #f4f5f5;
+	font-weight: bold;
+	color: #fd6901;
+}
+.Datepicker .Day.Holiday {
+	background: #ffffff;
+}
+.Datepicker .BtnClose {
+	position: relative;
+	top: 0;
+	right: 0;
+	display: block;
+	width: 223px;
+	height: 30px;
+	background: #dddfe8;
+	-webkit-border-radius: 0 0 2px 2px;
+	-moz-border-radius: 0 0 2px 2px;
+	-ms-border-radius: 0 0 2px 2px;
+	border-radius: 0 0 2px 2px;
+}
+.Datepicker .BtnClose .Control {
+	display: block;
+	width: 42px;
+	height: 19px;
+	position: absolute;
+	top: 5px;
+	right: 8px;
+}
+.Datepicker .BtnClose .Control {
+	background: url("../images/spms-control.gif") no-repeat;
+}
+.Datepicker .BtnClose .Control:hover, .Datepicker .BtnClose .Control:active {
+	background: url("../images/spms-control.gif") no-repeat;
+}
+/* Dialog */
+.Dialog {
+	width: 270px;
+	font-size: 12px;
+	color: #3c404a;
+	background: #ffffff;
+	border: 0;
+	-webkit-border-radius: 0;
+	-moz-border-radius: 0;
+	-ms-border-radius: 0;
+	border-radius: 0;
+	-webkit-box-shadow: 0;
+	-moz-box-shadow: 0;
+	box-shadow: 0;
+}
+.Dialog .Header {
+	position: relative;
+	width: 100%;
+	height: 50px;
+	padding-left: 20px;
+	font-size: 17px;
+	font-weight: bold;
+	line-height: 50px;
+	text-align: left;
+	color: #ffffff;
+	border-bottom: 1px solid #2e3441;
+	background: #2e3441;
+}
+.Dialog .Header .DialogBtn {
+	top: 13px;
+	right: 26px;
+}
+.Dialog .Header .DialogBtn:hover {
+	background: url("alopex/images/component_default.png") no-repeat -54px -236px;
+}
+.Dialog .Header .DialogBtn:active {
+	background: url("alopex/images/component_default.png") no-repeat -54px -236px;
+}
+/*Panel*/
+.Panel {
+	margin-bottom: 20px;
+	font-size: 12px;
+	color: #3c404a;
+	background: #ffffff;
+	/*
+	border: 1px solid #ced0d4;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	-ms-border-radius: 4px;
+	border-radius: 4px;
+	box-shadow: 1px 1px 5px #afb3b8;
+	*/
+	border:0;
+	border-radius:0;
+	box-shadow:none;
+}
+.Panel .Panel-content {
+	padding: 25px;
+}
+.Panel .Panel-header {
+	padding: 16px 20px;
+	font-size: 15px;
+	font-weight: bold;
+	color: #2e3441;
+	border-bottom: 2px solid #abaeb3;
+	background: #ffffff;
+	-webkit-border-radius: 4px 4px 0 0;
+	-moz-border-radius: 4px 4px 0 0;
+	-ms-border-radius: 4px 4px 0 0;
+	border-radius: 4px 4px 0 0;
+}
+.Table {
+	border-top:1px solid #d1d2d7;
+	border-right:1px solid #d1d2d7;
+	border-spacing:0;
+	border-collapse:collapse;
+	word-break: break-all;
+	table-layout:fixed;
+}
+
+.Table.Form-type tr {
+    border:0;
+}
+.Table.Form-type thead th ,
+.Table.Form-type tbody th ,
+.Table.Form-type tfoot th { 
+	padding: 10px;
+	color: #2e3441;
+	font-size: 13px;
+	font-weight: bold;
+	border-top:0;
+	border-left: 1px solid #d1d2d7;
+	border-right:0;
+	border-bottom: 1px solid #d1d2d7;
+	background: #edeef3;
+	text-align: center;	
+}
+.Table.Form-type tbody th { text-align:left; }
+.Table.Form-type td { 
+	text-align: left; 
+	border-left: 1px solid #d1d2d7;
+	border-bottom: 1px solid #d1d2d7;
+}
+.Table td label {
+	vertical-align:middle;
+	cursor:pointer;
+}
+.Table td select { 
+	height: 26px;
+    padding: 3px;
+    vertical-align: middle;
+}
+.Table input[type="checkbox"] { 
+	margin:0;
+}
+.ImageCheckbox input[type="checkbox"] { 
+	margin-right:2px;
+}
+.ImageCheckbox:after { 
+	left:0;
+}
+
+/* tabs */
+.Tabs > ul {
+	border: 0;
+}
+.Tabs > .Scroller > ul {
+	overflow: hidden;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	border-bottom: 0;
+}
+
+.Tabs > ul > li,
+.Tabs > .Scroller > ul > li {
+	padding: 10px 16px;
+	font-size: 15px;
+	color: #a4a7a9;
+	line-height: 18px;
+	background: #fafafc;
+	border: 1px solid #a4a7a9;
+	border-right: 1px solid #a4a7a9;
+	border-left: 0;
+}
+
+.Tabs > ul > li:first-child,
+.Tabs > .Scroller > ul > li:first-child {
+	border-left: 1px solid #d3d4d7;
+}
+
+.Tabs > ul > li:first-child:hover,
+.Tabs > .Scroller > ul > li:first-child:hover, 
+.Tabs > ul > li:first-child:active,
+.Tabs > .Scroller > ul > li:first-child:active, 
+.Tabs > ul > li.Selected:first-child,
+.Tabs > .Scroller > ul > li.Selected:first-child {
+	border-left: 1px solid #a4a7a9;
+}
+
+.Tabs > ul > li:hover,
+.Tabs > .Scroller > ul > li:hover,
+.Tabs > ul > li:active,
+.Tabs > .Scroller > ul > li:active {
+	color: #d04238 ;
+	line-height: 15px;
+	border-left: 0;
+	padding-top: 12px;
+	border-right: 1px solid #a4a7a9;
+	border-top: 3px solid #d04238 ;
+	border-bottom: 0;
+	background: #ffffff;
+}
+
+.Tabs > ul > li.Selected,
+.Tabs > .Scroller > ul > li.Selected {
+	color: #d04238 ;
+	line-height: 15px;
+	padding-top: 12px;
+	border-left: 0;
+	border-right: 1px solid #a4a7a9;
+	border-top: 3px solid #d04238 ;
+	border-bottom: 0;
+	background: #ffffff;
+}
+.Tabs > .Scroller ~ div {
+	margin-top: -1px;
+	border-top: 1px solid #a4a7a9;
+}
+
+/*textinput */
+.Textinput:hover, .Textinput:focus, .Textinput:active {
+	-webkit-transition: none;
+	-moz-transition: none;
+	-o-transition: none;
+	transition: none;
+}
+/* multiselect */
+button.MultiSelect {
+	cursor: pointer;
+	overflow: hidden;
+	font-size: 12px;
+	text-align: left;
+	color: #303030;
+	background: url("alopex/images/multi_btn_off_default.png") no-repeat right 10px;
+	border: 1px solid #afb3b8;
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	-ms-border-radius: 2px;
+	border-radius: 2px;
+}
+button.MultiSelect:hover {
+  background: url("alopex/images/multi_btn_on_default.png") no-repeat right 10px;
+  border: 1px solid #fa5a4c;
+}
+.Multiselect .ui-icon, .MultiSelect .ui-icon {
+	background: none;
+	width: 0;
+	height: 0;
+}
+.Multiselect.ui-multiselect, .MultiSelect.ui-multiselect {
+	padding: 5px 8px 5px;
+	margin-left: 0;
+	font-size: 12px;
+	height: 26px;
+	line-height: 13px;
+}
+.Multiselect.ui-state-default, .MultiSelect.ui-state-default {
+	border: 1px solid #afb3b8;
+}
+.Multiselect.ui-widget-content, .MultiSelect.ui-widget-content {
+	border: 1px solid #a4a7a9;
+	color: #3c404a;
+}
+.Multiselect .ui-widget-header, .MultiSelect .ui-widget-header {
+	background: #edeef3;
+	border: 0;
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	-ms-border-radius: 2px;
+	border-radius: 2px;
+}
+.Multiselect .ui-multiselect-header, .MultiSelect .ui-multiselect-header {
+	padding: 3px 0 14px 4px;
+}
+.Multiselect .ui-multiselect-filter, .MultiSelect .ui-multiselect-filter {
+	position: relative;
+	left: 4px;
+	top: 4px;
+	font-size: 13px;
+	font-weight: bold;
+	margin-right: 0;
+}
+.Multiselect .ui-multiselect-filter input, .MultiSelect .ui-multiselect-filter input {
+	border: 1px solid #a4a7a9;
+	height: 16px;
+	font-size: 12px;
+}
+.Multiselect.ui-widget-content a, .MultiSelect.ui-widget-content a {
+	font-size: 12px;
+}
+.Multiselect.ui-widget-content a.ui-multiselect-all:after, 
+.MultiSelect.ui-widget-content a.ui-multiselect-all:after {
+	content:'';
+	display: inline-block;
+	width: 1px;
+	height: 10px;
+	position: relative;
+	top: 2px;
+	left: 6px;
+	background: #3c404a;
+}
+.Multiselect.ui-widget-content a:hover, .MultiSelect.ui-widget-content a:hover {
+	text-decoration: underline;
+}
+.Multiselect .ui-multiselect-hasfilter ul, .MultiSelect .ui-multiselect-hasfilter ul {
+	position: relative;
+	top: 8px;
+	left: 5px;
+}
+.Multiselect .ui-multiselect-checkboxes li, .MultiSelect .ui-multiselect-checkboxes li {
+	font-size: 12px;
+	color: #757984;
+}
+.Multiselect .ui-multiselect-checkboxes label input, .MultiSelect .ui-multiselect-checkboxes label input {
+	top: 2px;
+}
+.Multiselect .ui-multiselect-checkboxes label input:checked + span, 
+.MultiSelect .ui-multiselect-checkboxes label input:checked + span {
+	font-weight: bold
+}
+/* web editor */
+.note-editor .Button.Onlyicon {
+	font-size: 12px;
+	min-width: 20px;
+	padding: 0px 12px;
+	border: 1px solid #c6c6c6;
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	-ms-border-radius: 2px;
+	border-radius: 2px;
+}
+.note-editor.note-frame {
+	border: 1px solid #a4a7a9;
+}
+.webeditor .webeditor-header {
+	background: #f8f8f8;
+	border-bottom: 1px solid #a4a7a9;
+}
+
+
+.Multiselect.ui-multiselect, .MultiSelect.ui-multiselect {
+	height:26px; width:180px
+}
+
+/* 2016-12-13 추가 */
+.Autocomplete > .Opener {
+	background: url("../images/ams-multi-arrow.png") no-repeat right 10px;
+}
+.Autocomplete > .Opener:hover, .Autocomplete > .Opener:active, .Autocomplete > .Opener.ui-state-active {
+	background: url("../images/ams-multi-arrow.png") no-repeat right 10px;
+}
